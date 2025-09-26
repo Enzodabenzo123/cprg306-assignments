@@ -5,6 +5,8 @@ export default function Page() {
     <main>
       <h1 className = "font-bold text-4x1">CPRG 306: Web Development 2 - Assignments</h1>
       <Link href="/week-2">Week-2 page</Link>
+      <br></br>
+      <Link href="/week-3">Week-3 page</Link>
 
     </main>
   
