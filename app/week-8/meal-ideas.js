@@ -25,19 +25,19 @@ export default function MealIdeas({ingredient}) {
     useEffect(() => {
         if(!ingredient) return;
         loadMealIdeas();
-    }, [loadMealIdeas]); // dependency array includes ingredient to refetch when it changes
+    }, [ingredient, loadMealIdeas]); // dependency array includes ingredient to refetch when it changes
 
     return(
         
         <div className="p-4 bg-gray-200 rounded-lg mt-4">
             <h2 className="text-xl font-bold mb-2">
-                List of meals for "{ingredient || '—'}"
+                List of meals for &quot;{ingredient || '—'}&quot;
             </h2>
 
             {!ingredient && <p>Select an ingredient to see meal ideas.</p>}
 
             {ingredient && meals.length === 0 && (
-            <p>No meals found for "{ingredient}".</p>
+            <p>No meals found for &quot;{ingredient}&quot;.</p>
             )}
             
             <ul className="grid grid-cols-2 gap-1">
