@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback} from "react";
 
 export default function MealIdeas({ingredient}) {
     const [meals, setMeals] = useState([]);
@@ -17,15 +17,15 @@ export default function MealIdeas({ingredient}) {
         }
     }
     // function to load meal ideas based on the ingredient
-    const loadMealIdeas = async () => {
+    const loadMealIdeas = useCallback(async () => {
         const newMealIdeas = await fetchMealIdeas(ingredient);
         setMeals(newMealIdeas);
-    };
+    }, [ingredient]);
     // useEffect to load meal ideas when ingredient changes checking if ingredient is not null
     useEffect(() => {
         if(!ingredient) return;
         loadMealIdeas();
-    }, [ingredient]); // dependency array includes ingredient to refetch when it changes
+    }, [loadMealIdeas]); // dependency array includes ingredient to refetch when it changes
 
     return(
         
