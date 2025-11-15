@@ -17,6 +17,8 @@ export default function Page() {
       <Link href="/week-7">Week-7 page</Link>
       <br></br>
       <Link href="/week-8">Week-8 page</Link>
+      <br></br>
+      <Link href="/week-9">week-9 page</Link>
     </main>
   
   );
