@@ -10,12 +10,12 @@ export default function Page() {
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();  
 
     return(
-        <div className=" bg-black text-white flex flex-col justify-self-center-safe">
-            {user && (<p>Welcome! {user.displayName}, <img src={user.photoURL} alt={user.displayName}/> this is your link for <Link href="week-9/shopping-list" className="underline">Shopping List</Link></p>)}
-            {!user && (<p className="mb-2 text-white">Please Sign in With GitHub to proceed</p>)}
+        <div className=" bg-black text-white flex flex-col justify-self-center">
+            {user && (<p>Welcome! {user.displayName}, <img src={user.photoURL} alt={user.displayName}/> this is your link for <Link href="week-10/shopping-list" className="underline">Shopping List</Link></p>)}
+            {!user && (<p className="border-white border-2  p-2 mb-2 bg-red-500 text-white">Please Sign in With GitHub to proceed</p>)}
             <p>
                 {user ? (<button onClick={firebaseSignOut} className="border-2 border-white rounded bg-red-500 text-white p-2">Sign Out</button>):
-                (<button onClick={gitHubSignIn} className="border-2 border-white rounded bg-blue-500 text-white p-2">Sign In</button>)}
+                (<button onClick={gitHubSignIn} className="border-2 border-white rounded bg-blue-500 text-white p-2 hover:cursor-pointer">Sign In</button>)}
            </p>
         </div>
     )
